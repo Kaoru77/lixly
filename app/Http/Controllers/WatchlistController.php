@@ -17,7 +17,7 @@ class WatchlistController extends Controller
         return view('watchlist', compact('movies'));
     }
 
-    public function store($id)
+    public function store(int $id)
     {
         $exists = DB::table('wishlists')->where('movie_id', $id)->exists();
 
@@ -32,7 +32,7 @@ class WatchlistController extends Controller
 
         return redirect()->back()->with('info', 'Film sudah ada di Watchlist kamu.');
     }
-    public function destroy($id)
+    public function destroy(int $id)
    {
     DB::table('wishlists')->where('movie_id', $id)->delete();
 
